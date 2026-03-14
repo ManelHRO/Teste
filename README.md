@@ -46,3 +46,45 @@ Este projeto implementa um pipeline para **previsão de tráfego** e **controle 
   Gera gráfico Real vs Predito (targets y0/y1) em PDF/PNG.
 
 ---
+## 2) Dataset
+
+Coloque o arquivo na pasta do projeto:
+- `smart_mobility_dataset.csv`
+
+A amostragem é a cada **5 minutos**.
+
+---
+
+## 3) Targets suavizados (caminho 2)
+
+Para aumentar previsibilidade, os alvos são definidos como **média móvel retroativa** (trailing):
+\[
+\overline{y}_t^{(W)}=\frac{1}{W}\sum_{i=0}^{W-1} y_{t-i}
+\]
+
+Com 5 min por passo:
+- `W=12` → **60 minutos**
+
+Targets:
+- `Traffic_Speed_kmh_target`
+- `Road_Occupancy_%_target`
+
+---
+
+## 4) Treinar a LSTM em 5 GPUs (DDP)
+
+Exemplo com melhor configuração do GA:
+
+```bash
+torchrun --nproc_per_node=5 train.py \
+  --csv_path smart_mobility_dataset.csv \
+  --lookback 72 \
+  --target_smooth_window 12 \
+  --batch_size 64 \
+  --lr 0.0003567106690649258 \
+  --weight_decay 5.4254126473815405e-06 \
+  --grad_clip 1.694140041744789 \
+  --hidden_size 128 \
+  --num_layers 2 \
+  --dropout 0.0685181867837602 \
+  --fc_size 32
