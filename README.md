@@ -32,3 +32,12 @@ Este projeto implementa um pipeline para **previsão de tráfego** e **controle 
       G_{prev}(t)=clip(G_{prev}(t-1)+\Delta G(t), [G_{min}, G_{max}])
     \]
   - Exporta `saida_fuzzy_seq.csv` com real/pred e sinais de controle.
+ 
+### HPO (GA)
+- `ga_hpo_lstm_v2.py`  
+  Algoritmo Genético com:
+  - seleção por torneio
+  - crossover de 1 ponto
+  - mutação por gene
+  - elitismo
+  - avaliação paralela em **5 GPUs** (1 indivíduo por GPU)
