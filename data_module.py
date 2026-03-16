@@ -1,20 +1,4 @@
 # data_module.py
-# Single "traffic light" time series (ignore Latitude/Longitude) + OPTIONAL target smoothing.
-#
-# Why smoothing?
-# In your CSV, Speed/Occupancy behave almost like white noise over time (lag-1 corr ~ 0),
-# so forecasting raw values gives R² ~ 0. If you want a *meaningful and predictable* target,
-# a common approach in traffic is to forecast an aggregated metric (e.g., 15/30/60-min average).
-#
-# This module lets you set target_smooth_window (in number of 5-min steps).
-# Examples:
-#   3  -> 15 min moving average
-#   6  -> 30 min moving average
-#   12 -> 60 min moving average
-#
-# Targets become the *trailing moving average* at time t (includes y[t] in the average).
-# Inputs still include the raw past speed/occupancy values as lagged features.
-
 from __future__ import annotations
 
 import numpy as np
