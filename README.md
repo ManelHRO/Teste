@@ -58,9 +58,8 @@ A amostragem é a cada **5 minutos**.
 ## 3) Targets suavizados (caminho 2)
 
 Para aumentar previsibilidade, os alvos são definidos como **média móvel retroativa** (trailing):
-\[
-\overline{y}_t^{(W)}=\frac{1}{W}\sum_{i=0}^{W-1} y_{t-i}
-\]
+
+$$\overline{y}_t^{(W)}=\frac{1}{W}\sum_{i=0}^{W-1} y_{t-i}$$
 
 Com 5 min por passo:
 - `W=12` → **60 minutos**
