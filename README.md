@@ -26,9 +26,7 @@ A previsão é feita no horizonte de *5 minutos à frente* (t+1), mas para reduz
 ### 1.2 Alvos suavizados (média móvel retroativa)
 Com dados de tráfego, o valor instantâneo pode ter alta variância e baixa autocorrelação. Para aumentar previsibilidade, os alvos são definidos como *média móvel retroativa (trailing)*:
 
-\[
-\overline{y}t^{(W)}=\frac{1}{W}\sum{i=0}^{W-1} y_{t-i}
-\]
+$$\overline{y}t^{(W)}=\frac{1}{W}\sum{i=0}^{W-1} y_{t-i}$$
 
 Com amostragem de 5 min:
 - W=12 → 60 minutos
