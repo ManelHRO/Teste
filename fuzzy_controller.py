@@ -7,8 +7,6 @@
 # Run:
 #   python fuzzy_controller.py --csv_path smart_mobility_dataset.csv --ckpt best_lstm.pt --lookback 72 --target_smooth_window 12
 #
-# Optional:
-#   --g_init 45 --g_min 10 --g_max 120 --dg_max 20
 #   --save_csv saida_seq.csv
 
 from __future__ import annotations
