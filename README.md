@@ -82,24 +82,24 @@ Neste projeto:
 ## 2) Estrutura do repositório
 
 ### Treinamento / Modelo
-- train.py — treino DDP em 5 GPUs via torchrun (*suporta* --weight_decay e --grad_clip)
-- model.py — LSTMRegressor
-- data_module.py — prepara dataset, targets, janelas, escalonamento, split temporal
+- `train.py` — treino DDP em 5 GPUs via torchrun (*suporta* --weight_decay e --grad_clip)
+- `model.py` — LSTMRegressor
+- `data_module.py` — prepara dataset, targets, janelas, escalonamento, split temporal
 
 ### Controle
-- fuzzy_controller.py — fuzzy Mamdani + controle sequencial (gera CSV e métricas)
+- `fuzzy_controller.py` — fuzzy Mamdani + controle sequencial (gera CSV e métricas)
 
 ### HPO
-- ga_hpo_lstm_v2.py — GA-HPO com execução paralela em 5 GPUs
+- `ga_hpo_lstm_v2.py` — GA-HPO com execução paralela em 5 GPUs
 
 ### Plot (opcional)
-- plot_pred_vs_real.py — gráfico Real vs Predito (PDF/PNG)
+- `plot_pred_vs_real.py` — gráfico Real vs Predito (PDF/PNG)
 
 ---
 
 ## 3) Dataset
 Coloque o arquivo na raiz do projeto:
-- smart_mobility_dataset.csv
+- `smart_mobility_dataset.csv`
 
 ---
 
