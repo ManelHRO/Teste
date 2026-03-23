@@ -1,0 +1,79 @@
+{
+  "fitness": 0.25805033336986194,
+  "metrics": {
+    "val_scaled_mse": 0.25805033336986194,
+    "y0_r2": 0.8436458242949848,
+    "y1_r2": 0.8658725656167215,
+    "avg_r2": 0.8547591949558532,
+    "train_time_s": 7.879735469818115
+  },
+  "config": {
+    "lookback": 72,
+    "target_smooth_window": 12,
+    "freq_minutes": 5,
+    "batch_size": 64,
+    "lr": 0.0003567106690649258,
+    "weight_decay": 5.4254126473815405e-06,
+    "grad_clip": 1.694140041744789,
+    "hidden_size": 128,
+    "num_layers": 2,
+    "dropout": 0.0685181867837602,
+    "fc_size": 32
+  },
+  "gene_space": {
+    "lookback": [
+      36,
+      72,
+      144
+    ],
+    "target_smooth_window": [
+      3,
+      6,
+      12
+    ],
+    "freq_minutes": [
+      5
+    ],
+    "batch_size": [
+      64,
+      128,
+      256
+    ],
+    "lr": [
+      "log_uniform",
+      0.0001,
+      0.003
+    ],
+    "weight_decay": [
+      "log_uniform_or_zero",
+      1e-06,
+      0.001
+    ],
+    "grad_clip": [
+      "uniform",
+      0.0,
+      2.0
+    ],
+    "hidden_size": [
+      32,
+      64,
+      128,
+      256
+    ],
+    "num_layers": [
+      1,
+      2
+    ],
+    "dropout": [
+      "uniform",
+      0.0,
+      0.5
+    ],
+    "fc_size": [
+      32,
+      64,
+      128
+    ]
+  },
+  "suggested_train_command": "torchrun --nproc_per_node=5 train.py --csv_path smart_mobility_dataset.csv --lookback 72 --batch_size 64 --lr 0.0003567106690649258 --hidden_size 128 --num_layers 2 --dropout 0.0685181867837602 --fc_size 32 --target_smooth_window 12"
+}
