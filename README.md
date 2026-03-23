@@ -121,3 +121,8 @@ torchrun --nproc_per_node=5 train.py \
   --num_layers 2 \
   --dropout 0.0685181867837602 \
   --fc_size 32
+```
+
+## Licença
+
+Este projeto está licenciado sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
